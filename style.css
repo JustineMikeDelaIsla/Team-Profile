@@ -1,784 +1,577 @@
+/* =========================
+   GENERAL
+========================= */
+
 * {
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
-
-    scroll-padding-top: 30px;
 }
 
 body {
-    font-family:
-        "Inter",
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-    background: #ffffff;
-
-    color: #2f2f2f;
-
-    -webkit-font-smoothing: antialiased;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #eefaf8, #f7fbff);
+    color: #183b4b;
+    line-height: 1.6;
 }
 
-/* Hero */
+
+/* =========================
+   HERO / HEADER
+========================= */
 
 .hero {
-
-    min-height: 100vh;
-
-    width: 100%;
-
-    position: relative;
-
+    min-height: 430px;
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     text-align: center;
 
-    padding: 40px 24px;
+    margin: 0 -10px 70px;
 
-    background: #ffffff;
+    background:
+        linear-gradient(
+            135deg,
+            #064b68 0%,
+            #087f8c 45%,
+            #12a878 100%
+        );
 
-}
+    color: white;
 
-/* Hero Content */
-
-.hero-content {
-
-    width: min(750px, 100%);
-
-    margin-top: -30px;
-
-}
-
-
-
-.eyebrow {
-
-    margin-bottom: 18px;
-
-    color: #8a8a8a;
-
-    font-size: 15px;
-
-    font-weight: 500;
-
-    letter-spacing: 1.5px;
-
-}
-
-/* Hero Title */
-
-.hero h2{
-
-    color: #202123;
-
-    font-size: 40px;
-
-    font-weight: 600;
-
-    line-height: 1.05;
-
-    letter-spacing: -3px;
-
-}
-
-/* Subtitle */
-
-.subtitle {
-
-    max-width: 550px;
-
-    margin: 22px auto 0;
-
-    color: #6b6b6b;
-
-    font-size: 16px;
-
-    line-height: 1.7;
-
-}
-
-/* Button */
-
-.hero-button {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    margin-top: 34px;
-
-    padding: 12px 18px;
-
-    background: #202123;
-
-    color: #ffffff;
-
-    border: 1px solid #202123;
-    
-    border-radius: 17px;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 500;
-
-    transition:
-        background .2s ease,
-        transform .2s ease,
-        box-shadow .2s ease;
-
-}
-
-.hero-button .arrow {
-
-    display: inline-block;
-
-    font-size: 16px;
-
-    transition:
-        transform .25s ease;
-
-}
-
-.hero-button:hover {
-
-    background: #343541;
-
-    border-color: #343541;
-
-    transform: translateY(-2px);
+    border-radius: 0 0 45px 45px;
 
     box-shadow:
-        0 6px 18px rgba(0, 0, 0, .08);
+        0 15px 40px rgba(0, 100, 110, 0.25);
 
+    position: relative;
+    overflow: hidden;
 }
 
-.hero-button:hover .arrow {
 
-    transform: translateY(3px);
+/* Decorative circles */
 
-}
-
-.hero-button:active {
-
-    transform: translateY(0);
-
-    box-shadow: none;
-
-}
-
-/* Scroll Indicator */
-
-.scroll-indicator {
-
+.hero::before {
+    content: "";
     position: absolute;
 
-    bottom: 30px;
+    width: 300px;
+    height: 300px;
 
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 8px;
-
-}
-
-.scroll-indicator p {
-
-    color: #a0a0a0;
-
-    font-size: 10px;
-
-    letter-spacing: .3px;
-
-}
-
-.scroll-indicator span {
-
-    width: 1px;
-
-    height: 28px;
-
-    background: #cfcfcf;
-
-    animation:
-        scrollLine 1.8s ease-in-out infinite;
-
-}
-
-/* Scroll Animation */
-
-@keyframes scrollLine {
-
-    0% {
-
-        opacity: 0;
-
-        transform: scaleY(.5);
-
-        transform-origin: top;
-
-    }
-
-    50% {
-
-        opacity: 1;
-
-        transform: scaleY(1);
-
-        transform-origin: top;
-
-    }
-
-    100% {
-
-        opacity: 0;
-
-        transform: scaleY(.5);
-
-        transform-origin: bottom;
-
-    }
-
-}
-
-/* Main */
-
-main {
-
-    width: min(
-        1100px,
-        calc(100% - 48px)
-    );
-
-    margin: 0 auto;
-
-}
-
-/* Team Section */
-
-.team-section {
-
-    margin-bottom: 70px;
-
-}
-
-/* Section Title */
-
-.section-title {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin-bottom: 18px;
-
-}
-
-.section-title span {
-
-    color: #999999;
-
-    font-size: 11px;
-
-    font-weight: 500;
-
-}
-
-.section-title h2 {
-
-    color: #202123;
-
-    font-size: 14px;
-
-    font-weight: 500;
-
-}
-
-/* Team Grid */
-
-.team {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 16px;
-
-}
-
-/* Cards */
-
-.card {
-
-    padding: 23px;
-
-    background: #ffffff;
-
-    border: 1px solid #e5e5e5;
-
-    border-radius: 16px;
-
-    transition:
-        border-color .2s ease,
-        background .2s ease,
-        transform .2s ease,
-        box-shadow .2s ease;
-
-}
-
-.card:hover {
-
-    background: #fafafa;
-
-    border-color: #d2d2d2;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 5px 16px rgba(0, 0, 0, .04);
-
-}
-
-/* Leader Card */
-
-.leader-card {
-
-    padding: 28px;
-
-}
-
-.leader-card .profile {
-
-    width: 76px;
-
-    height: 76px;
-
-    flex-basis: 76px;
-
-}
-
-/* Profile */
-
-.profile-row {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-}
-
-.profile {
-
-    width: 62px;
-
-    height: 62px;
-
-    flex: 0 0 62px;
-
-    object-fit: contain;
+    background: rgba(255, 255, 255, 0.08);
 
     border-radius: 50%;
 
-    background: #f5f5f5;
-
-    display: block;
-
+    top: -120px;
+    left: -80px;
 }
 
-/* Profile Info */
+.hero::after {
+    content: "";
+    position: absolute;
 
-.profile-info {
+    width: 350px;
+    height: 350px;
 
-    min-width: 0;
+    background: rgba(255, 255, 255, 0.08);
 
-    flex: 1;
+    border-radius: 50%;
 
+    bottom: -180px;
+    right: -100px;
 }
 
-.profile-info h2 {
 
-    color: #202123;
+.hero-content {
+    position: relative;
+    z-index: 2;
 
-    font-size: 15px;
+    max-width: 800px;
+    padding: 40px 20px;
+}
 
-    font-weight: 500;
 
-    line-height: 1.4;
+.eyebrow {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
 
-    white-space: nowrap;
+    margin-bottom: 15px;
+
+    color: #b9fff0;
+}
+
+
+.hero h2 {
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 700;
+
+    margin-bottom: 15px;
+
+    letter-spacing: -2px;
+}
+
+
+.subtitle {
+    font-size: 18px;
+    color: #e5fffa;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   HERO BUTTON
+========================= */
+
+.hero-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    background: white;
+    color: #087f8c;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.2);
+
+    transition: 0.3s ease;
+}
+
+
+.hero-button:hover {
+    transform: translateY(6px);
+
+    background: #b9fff0;
+
+    color: #064b68;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.team-section {
+    margin-bottom: 80px;
+}
+
+
+.section-title {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.section-title h2 {
+    color: #075e6b;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    position: relative;
+
+    padding-left: 15px;
+}
+
+
+/* colored line beside title */
+
+.section-title h2::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 5px;
+
+    width: 5px;
+    height: 28px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            #087f8c,
+            #12a878
+        );
+}
+
+
+/* =========================
+   TEAM GRID
+========================= */
+
+.team {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    border: 1px solid #d9eeee;
+
+    box-shadow:
+        0 8px 25px rgba(0, 100, 110, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    position: relative;
 
     overflow: hidden;
-
-    text-overflow: ellipsis;
-
 }
 
-/* Name */
 
-.name-row {
+/* top color line */
 
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #087f8c,
+            #12a878
+        );
+}
+
+
+.card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 35px rgba(0, 100, 110, 0.16);
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-row {
     display: flex;
 
     align-items: center;
 
-    gap: 8px;
-
-    min-width: 0;
-
+    gap: 18px;
 }
 
-.name-row h2 {
 
-    min-width: 0;
+.profile {
+    width: 85px;
+    height: 85px;
 
-}
+    object-fit: cover;
 
-/* Leader Badge */
+    border-radius: 50%;
 
-.leader-badge {
+    background: #edf7f6;
+
+    border: 4px solid white;
+
+    outline: 3px solid #0b9b91;
 
     flex-shrink: 0;
-
-    padding: 4px 8px;
-
-    color: #666666;
-
-    background: #ffffff;
-
-    border: 1px solid #dcdcdc;
-
-    border-radius: 999px;
-
-    font-size: 10px;
-
-    line-height: 1;
-
-    white-space: nowrap;
-
 }
 
-/* Address */
+
+/* =========================
+   PROFILE INFORMATION
+========================= */
+
+.profile-info {
+    min-width: 0;
+}
+
+
+.profile-info h2 {
+    color: #123b4a;
+
+    font-size: 19px;
+
+    line-height: 1.25;
+
+    margin-bottom: 4px;
+}
+
 
 .address {
-
-    margin-top: 3px;
-
-    color: #8e8e8e;
-
-    font-size: 12px;
-
-    line-height: 1.4;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-
-}
-
-/* Email */
-
-.email {
-
-    margin-top: 3px;
-
-    color: #2598f7;
-
-    font-size: 11px;
-
-    text-decoration: underline;
-
-    line-height: 1.4;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    text-overflow: ellipsis;
-
-}
-
-/* Description */
-
-.description {
-
-    margin-top: 20px;
-
-    color: #5f6368;
+    color: #7b929c;
 
     font-size: 13px;
 
-    line-height: 1.7;
-
+    margin-bottom: 3px;
 }
 
-/* Footer */
 
-footer {
-
-    width: min(
-        1100px,
-        calc(100% - 48px)
-    );
-
-    margin: 0 auto;
-
-    padding: 25px 0 40px;
-
-    border-top: 1px solid #eeeeee;
-
-    text-align: center;
-
-}
-
-footer p {
-
-    color: #999999;
+.email {
+    color: #087f8c;
 
     font-size: 12px;
 
+    word-break: break-word;
 }
 
-/* Tablet */
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description {
+    color: #607783;
+
+    font-size: 14px;
+
+    margin-top: 22px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   GROUP LEADER
+========================= */
+
+.leader-card {
+    background:
+        linear-gradient(
+            135deg,
+            #064b68 0%,
+            #087f8c 50%,
+            #12a878 100%
+        );
+
+    color: white;
+
+    padding: 35px;
+
+    border: none;
+
+    box-shadow:
+        0 15px 40px rgba(0, 100, 110, 0.2);
+}
+
+
+/* Remove normal top line */
+
+.leader-card::before {
+    display: none;
+}
+
+
+.leader-card .profile {
+    width: 120px;
+    height: 120px;
+
+    outline: 4px solid #b9fff0;
+
+    border: 5px solid white;
+}
+
+
+.leader-card .profile-info h2 {
+    color: white;
+
+    font-size: 28px;
+}
+
+
+.leader-card .address {
+    color: #d8fffa;
+
+    font-size: 14px;
+}
+
+
+.leader-card .email {
+    color: #b9fff0;
+
+    font-size: 13px;
+}
+
+
+.leader-card .description {
+    color: #e3fffa;
+
+    margin-top: 28px;
+
+    font-size: 15px;
+
+    max-width: 850px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 50px;
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #064b68,
+            #087f8c
+        );
+
+    color: #dffff9;
+
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+
+footer p {
+    font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 900px) {
 
-    .hero h1 {
-
-        font-size: 48px;
-
-    }
-
     .team {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
 
-/* Mobile */
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
 
     .hero {
+        min-height: 380px;
 
-        min-height: 100svh;
+        border-radius: 0 0 30px 30px;
 
-        padding:
-            30px 20px;
-
+        margin-bottom: 50px;
     }
 
-    .hero-content {
 
-        margin-top: -20px;
-
+    .hero h2 {
+        font-size: 42px;
     }
 
-    .hero h1 {
-
-        font-size: 38px;
-
-        letter-spacing: -1.8px;
-
-    }
 
     .subtitle {
-
-        font-size: 14px;
-
+        font-size: 15px;
     }
 
-    .hero-button {
-
-        margin-top: 28px;
-
-    }
-
-    .scroll-indicator {
-
-        bottom: 22px;
-
-    }
-
-    main {
-
-        width:
-            calc(100% - 32px);
-
-    }
 
     .team {
-
         grid-template-columns: 1fr;
-
-        gap: 12px;
-
     }
 
-    .card,
+
     .leader-card {
-
-        padding: 20px;
-
-        border-radius: 14px;
-
+        padding: 25px;
     }
 
-    .profile,
+
+    .leader-card .profile-row {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
     .leader-card .profile {
-
-        width: 56px;
-
-        height: 56px;
-
-        flex-basis: 56px;
-
+        width: 130px;
+        height: 130px;
     }
 
-    .profile-row {
 
-        gap: 14px;
-
+    .leader-card .description {
+        text-align: center;
     }
+
+
+    .profile {
+        width: 75px;
+        height: 75px;
+    }
+
 
     .profile-info h2 {
-
-        font-size: 14px;
-
+        font-size: 17px;
     }
 
-    .address {
+}
 
-        font-size: 11px;
 
+@media (max-width: 400px) {
+
+    .profile-row {
+        align-items: flex-start;
     }
+
+
+    .profile {
+        width: 65px;
+        height: 65px;
+    }
+
 
     .email {
-
-        font-size: 10px;
-
-    }
-
-    .description {
-
-        margin-top: 18px;
-
-        font-size: 12.5px;
-
-    }
-
-    .leader-badge {
-
-        display: none;
-
-    }
-
-    footer {
-
-        width:
-            calc(100% - 32px);
-
-    }
-
-}
-
-/* Small Mobile */
-
-@media (max-width: 380px) {
-
-    .hero h1 {
-
-        font-size: 34px;
-
-    }
-
-    .hero-button {
-
-        padding:
-            11px 15px;
-
-    }
-
-    .card,
-    .leader-card {
-
-        padding: 18px;
-
-    }
-
-    .profile,
-    .leader-card .profile {
-
-        width: 52px;
-
-        height: 52px;
-
-        flex-basis: 52px;
-
-    }
-
-}
-
-/* Reduced Motion */
-
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-
-        scroll-behavior: auto;
-
-    }
-
-    .scroll-indicator span {
-
-        animation: none;
-
-    }
-
-    .card,
-    .hero-button {
-
-        transition: none;
-
-    }
-
-    .card:hover,
-    .hero-button:hover {
-
-        transform: none;
-
+        font-size: 11px;
     }
 
 }
